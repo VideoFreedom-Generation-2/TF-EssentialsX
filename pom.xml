@@ -81,7 +81,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.7</version>
+                <version>1.8</version>
                 <executions>
                     <execution>
                         <phase>validate</phase>
@@ -259,8 +259,8 @@
         <release.version>2.15.0</release.version>
 
         <!-- The plugins' build number -->
-        <build.version>${git.closest.tag.commit.count}</build.version>
+        <build.version>-TF</build.version>
 
-        <full.version>${release.version}.${build.version}</full.version>
+        <full.version>${release.version}${build.version}</full.version>
     </properties>
 </project>
