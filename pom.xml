@@ -17,9 +17,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://github.com/drtshock/Essentials.git</connection>
-        <developerConnection>scm:git:https://github.com/drtshock/Essentials.git</developerConnection>
-        <url>https://github.com/drtshock/Essentials</url>
+        <connection>scm:git:https://github.com/Telesphoreo/TF-EssentialsX.git</connection>
+        <developerConnection>scm:git:https://github.com/Telesphoreo/TF-EssentialsX.git</developerConnection>
+        <url>https://github.com/Telesphoreo/TF-EssentialsX</url>
     </scm>
 
     <repositories>
