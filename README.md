@@ -1,8 +1,6 @@
 ![](https://i.imgur.com/CP4SZpB.png)
 
-[![Downloads](https://i.imgur.com/MMc0PJY.png)](http://ci.ender.zone/job/EssentialsX/)
-
-[![Discord](https://imgur.com/MFRRBn4.png)](https://discord.gg/casfFyh)
+[![](https://jitpack.io/v/Telesphoreo/TF-EssentialsX.svg)](https://jitpack.io/#Telesphoreo/TF-EssentialsX)
 
 This is a fork of Essentials called EssentialsX.
 
