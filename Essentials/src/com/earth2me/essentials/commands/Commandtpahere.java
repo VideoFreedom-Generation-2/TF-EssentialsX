@@ -24,8 +24,8 @@ public class Commandtpahere extends EssentialsCommand {
         if (user.getName().equalsIgnoreCase(player.getName())) {
             throw new NotEnoughArgumentsException();
         }
-        if (!player.isTeleportEnabled()) {
-            throw new Exception(tl("teleportDisabled", player.getDisplayName()));
+        if (!player.isTpaEnabled()) {
+            throw new Exception(tl("tpaIsDisabled", player.getDisplayName()));
         }
         if (user.getWorld() != player.getWorld() && ess.getSettings().isWorldTeleportPermissions() && !user.isAuthorized("essentials.worlds." + user.getWorld().getName())) {
             throw new Exception(tl("noPerm", "essentials.worlds." + user.getWorld().getName()));
@@ -38,8 +38,8 @@ public class Commandtpahere extends EssentialsCommand {
         if (!player.isIgnoredPlayer(user)) {
             player.requestTeleport(user, true);
             player.sendMessage(tl("teleportHereRequest", user.getDisplayName()));
-            player.sendMessage(tl("typeTpaccept"));
-            player.sendMessage(tl("typeTpdeny"));
+            player.sendMessage(tl("teleportCommands"));
+
             if (ess.getSettings().getTpaAcceptCancellation() != 0) {
                 player.sendMessage(tl("teleportRequestTimeoutInfo", ess.getSettings().getTpaAcceptCancellation()));
             }

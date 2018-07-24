@@ -427,6 +427,10 @@ commands:
     description: Request to teleport to the specified player.
     usage: /<command> <player>
     aliases: [call,ecall,etpa,tpask,etpask]
+  tpatoggle:
+    description: Toggle teleportation requests.
+    usage: /<command> <player>
+    aliases: [etpatoggle]
 #  tpaall:
 #    description: Requests all players online to teleport to you.
 #    usage: /<command> <player>

@@ -21,11 +21,12 @@ public class Commandtpa extends EssentialsCommand {
         }
 
         User player = getPlayer(server, user, args, 0);
+
         if (user.getName().equalsIgnoreCase(player.getName())) {
             throw new NotEnoughArgumentsException();
         }
-        if (!player.isTeleportEnabled()) {
-            throw new Exception(tl("teleportDisabled", player.getDisplayName()));
+        if (!player.isTpaEnabled()) {
+            throw new Exception(tl("tpaIsDisabled", player.getDisplayName()));
         }
         if (user.getWorld() != player.getWorld() && ess.getSettings().isWorldTeleportPermissions() && !user.isAuthorized("essentials.worlds." + player.getWorld().getName())) {
             throw new Exception(tl("noPerm", "essentials.worlds." + player.getWorld().getName()));
@@ -39,8 +40,7 @@ public class Commandtpa extends EssentialsCommand {
         if (!player.isIgnoredPlayer(user)) {
             player.requestTeleport(user, false);
             player.sendMessage(tl("teleportRequest", user.getDisplayName()));
-            player.sendMessage(tl("typeTpaccept"));
-            player.sendMessage(tl("typeTpdeny"));
+            player.sendMessage(tl("teleportCommands"));
             if (ess.getSettings().getTpaAcceptCancellation() != 0) {
                 player.sendMessage(tl("teleportRequestTimeoutInfo", ess.getSettings().getTpaAcceptCancellation()));
             }
