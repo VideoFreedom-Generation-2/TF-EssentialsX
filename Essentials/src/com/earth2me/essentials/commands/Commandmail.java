@@ -47,10 +47,6 @@ public class Commandmail extends EssentialsCommand {
                 throw new Exception(tl("noPerm", "essentials.mail.send"));
             }
 
-            if (user.isMuted()) {
-                throw new Exception(tl("voiceSilenced"));
-            }
-
             User u = getPlayer(server, args[1], true, true);
             if (u == null) {
                 throw new Exception(tl("playerNeverOnServer", args[1]));

@@ -1469,6 +1469,11 @@ public class OfflinePlayer implements Player {
     }
 
     @Override
+    public void updateCommands() {
+
+    }
+
+    @Override
     public boolean hasCooldown(Material material) {
         return false;
     }

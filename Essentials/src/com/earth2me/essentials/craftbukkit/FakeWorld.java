@@ -635,6 +635,21 @@ public class FakeWorld implements World {
     }
 
     @Override
+    public <T> T getGameRuleValue(GameRule<T> gameRule) {
+        return null;
+    }
+
+    @Override
+    public <T> T getGameRuleDefault(GameRule<T> gameRule) {
+        return null;
+    }
+
+    @Override
+    public <T> boolean setGameRule(GameRule<T> gameRule, T t) {
+        return false;
+    }
+
+    @Override
     public boolean createExplosion(double d, double d1, double d2, float f, boolean bln, boolean bln1) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
