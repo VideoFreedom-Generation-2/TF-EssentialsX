@@ -1469,11 +1469,6 @@ public class OfflinePlayer implements Player {
     }
 
     @Override
-    public void updateCommands() {
-
-    }
-
-    @Override
     public boolean hasCooldown(Material material) {
         return false;
     }
@@ -1534,4 +1529,8 @@ public class OfflinePlayer implements Player {
     public PistonMoveReaction getPistonMoveReaction() {
         return null;
     }
+
+	@Override
+	public void updateCommands() {
+	}
 }

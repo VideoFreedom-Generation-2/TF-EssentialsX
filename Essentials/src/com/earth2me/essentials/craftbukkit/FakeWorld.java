@@ -635,21 +635,6 @@ public class FakeWorld implements World {
     }
 
     @Override
-    public <T> T getGameRuleValue(GameRule<T> gameRule) {
-        return null;
-    }
-
-    @Override
-    public <T> T getGameRuleDefault(GameRule<T> gameRule) {
-        return null;
-    }
-
-    @Override
-    public <T> boolean setGameRule(GameRule<T> gameRule, T t) {
-        return false;
-    }
-
-    @Override
     public boolean createExplosion(double d, double d1, double d2, float f, boolean bln, boolean bln1) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -723,4 +708,19 @@ public class FakeWorld implements World {
     public List<Entity> getNearbyEntities(Location loc, double x, double y, double z) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+	@Override
+	public <T> T getGameRuleDefault(GameRule<T> arg0) {
+        throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public <T> T getGameRuleValue(GameRule<T> arg0) {
+        throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+	@Override
+	public <T> boolean setGameRule(GameRule<T> arg0, T arg1) {
+        throw new UnsupportedOperationException("Not supported yet.");
+	}
 }
