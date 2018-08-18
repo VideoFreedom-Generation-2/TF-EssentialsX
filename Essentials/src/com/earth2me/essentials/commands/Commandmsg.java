@@ -28,6 +28,9 @@ public class Commandmsg extends EssentialsLoopCommand {
         boolean canWildcard;
         if (sender.isPlayer()) {
             User user = ess.getUser(sender.getPlayer());
+            if (user.isMuted()) {
+                throw new Exception(tl("voiceSilenced"));
+            }
             message = FormatUtil.formatMessage(user, "essentials.msg", message);
             canWildcard = user.isAuthorized("essentials.msg.multiple");
         } else {
