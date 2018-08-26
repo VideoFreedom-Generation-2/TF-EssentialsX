@@ -433,6 +433,9 @@ public class Settings implements net.ess3.api.ISettings {
             mFormat = "§r".concat(mFormat);
             chatFormats.put(group, mFormat);
         }
+        if (isDebug()) {
+            ess.getLogger().info(String.format("Found format '%s' for group '%s'", mFormat, group));
+        }
         return mFormat;
     }
 
@@ -1294,7 +1297,12 @@ public class Settings implements net.ess3.api.ISettings {
         if (isCommandCooldownsEnabled()) {
             for (Entry<Pattern, Long> entry : this.commandCooldowns.entrySet()) {
                 // Check if label matches current pattern (command-cooldown in config)
-                if (entry.getKey().matcher(label).matches()) {
+                boolean matches = entry.getKey().matcher(label).matches();
+                if (isDebug()) {
+                    ess.getLogger().info(String.format("Checking command '%s' against cooldown '%s': %s", label, entry.getKey(), matches));
+                }
+
+                if (matches) {
                     return entry;
                 }
             }
