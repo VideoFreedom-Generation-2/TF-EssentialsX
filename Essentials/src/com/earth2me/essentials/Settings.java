@@ -538,6 +538,7 @@ public class Settings implements net.ess3.api.ISettings {
         unprotectedSigns = _getUnprotectedSign();
         defaultEnabledConfirmCommands = _getDefaultEnabledConfirmCommands();
         isCompassTowardsHomePerm = _isCompassTowardsHomePerm();
+        isAllowWorldInBroadcastworld = _isAllowWorldInBroadcastworld();
     }
 
     private List<Material> itemSpawnBl = new ArrayList<Material>();
@@ -1459,5 +1460,16 @@ public class Settings implements net.ess3.api.ISettings {
     @Override
     public boolean isCompassTowardsHomePerm() {
         return isCompassTowardsHomePerm;
+    }
+
+    private boolean isAllowWorldInBroadcastworld;
+
+    private boolean _isAllowWorldInBroadcastworld() {
+        return config.getBoolean("allow-world-in-broadcastworld", false);
+    }
+
+    @Override
+    public boolean isAllowWorldInBroadcastworld() {
+        return isAllowWorldInBroadcastworld;
     }
 }
