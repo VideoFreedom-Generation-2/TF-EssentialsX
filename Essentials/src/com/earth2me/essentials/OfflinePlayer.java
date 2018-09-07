@@ -147,6 +147,10 @@ public class OfflinePlayer implements Player {
         return -1;
     }
 
+    public BlockFace getFacing() {
+        return null;
+    }
+
     @Override
     public boolean performCommand(String string) {
         return false;
@@ -1528,11 +1532,6 @@ public class OfflinePlayer implements Player {
 
     @Override
     public PistonMoveReaction getPistonMoveReaction() {
-        return null;
-    }
-
-    @Override
-    public BlockFace getFacing() {
         return null;
     }
 
