@@ -962,6 +962,30 @@ public class OfflinePlayer implements Player {
     }
 
     @Override
+    public boolean discoverRecipe(NamespacedKey namespacedKey)
+    {
+        return false;
+    }
+
+    @Override
+    public int discoverRecipes(Collection<NamespacedKey> collection)
+    {
+        return 0;
+    }
+
+    @Override
+    public boolean undiscoverRecipe(NamespacedKey namespacedKey)
+    {
+        return false;
+    }
+
+    @Override
+    public int undiscoverRecipes(Collection<NamespacedKey> collection)
+    {
+        return 0;
+    }
+
+    @Override
     public boolean hasLineOfSight(Entity entity) {
         return false;
     }

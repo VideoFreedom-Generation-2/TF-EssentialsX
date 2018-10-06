@@ -85,6 +85,12 @@ public class FakeWorld implements World {
     }
 
     @Override
+    public boolean isChunkGenerated(int i, int i1)
+    {
+        return false;
+    }
+
+    @Override
     public void loadChunk(int i, int i1) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -712,6 +718,12 @@ public class FakeWorld implements World {
     @Override
     public <T> void spawnParticle(Particle particle, double v, double v1, double v2, int i, double v3, double v4, double v5, double v6, T t, boolean b) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Location locateNearestStructure(Location location, StructureType structureType, int i, boolean b)
+    {
+        return null;
     }
 
     @Override
