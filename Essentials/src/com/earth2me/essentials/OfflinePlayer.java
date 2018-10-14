@@ -962,26 +962,22 @@ public class OfflinePlayer implements Player {
     }
 
     @Override
-    public boolean discoverRecipe(NamespacedKey namespacedKey)
-    {
+    public boolean discoverRecipe(NamespacedKey recipe) {
         return false;
     }
 
     @Override
-    public int discoverRecipes(Collection<NamespacedKey> collection)
-    {
+    public int discoverRecipes(Collection<NamespacedKey> recipes) {
         return 0;
     }
 
     @Override
-    public boolean undiscoverRecipe(NamespacedKey namespacedKey)
-    {
+    public boolean undiscoverRecipe(NamespacedKey recipe) {
         return false;
     }
 
     @Override
-    public int undiscoverRecipes(Collection<NamespacedKey> collection)
-    {
+    public int undiscoverRecipes(Collection<NamespacedKey> recipes) {
         return 0;
     }
 

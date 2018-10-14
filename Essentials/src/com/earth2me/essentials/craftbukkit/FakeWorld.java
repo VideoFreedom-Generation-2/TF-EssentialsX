@@ -85,9 +85,8 @@ public class FakeWorld implements World {
     }
 
     @Override
-    public boolean isChunkGenerated(int i, int i1)
-    {
-        return false;
+    public boolean isChunkGenerated(int x, int z) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -721,9 +720,8 @@ public class FakeWorld implements World {
     }
 
     @Override
-    public Location locateNearestStructure(Location location, StructureType structureType, int i, boolean b)
-    {
-        return null;
+    public Location locateNearestStructure(Location origin, StructureType structureType, int radius, boolean findUnexplored) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
