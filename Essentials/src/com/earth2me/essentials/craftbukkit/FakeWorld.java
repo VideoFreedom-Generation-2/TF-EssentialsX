@@ -1,5 +1,6 @@
 package com.earth2me.essentials.craftbukkit;
 
+import java.util.function.Predicate;
 import org.bukkit.*;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
@@ -11,6 +12,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.MaterialData;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.util.BoundingBox;
+import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 
 import java.io.File;
@@ -729,7 +732,73 @@ public class FakeWorld implements World {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-	@Override
+    @Override
+    public Collection<Entity> getNearbyEntities(Location location, double v, double v1, double v2, Predicate<Entity> predicate)
+    {
+        return null;
+    }
+
+    @Override
+    public Collection<Entity> getNearbyEntities(BoundingBox boundingBox)
+    {
+        return null;
+    }
+
+    @Override
+    public Collection<Entity> getNearbyEntities(BoundingBox boundingBox, Predicate<Entity> predicate)
+    {
+        return null;
+    }
+
+    @Override
+    public RayTraceResult rayTraceEntities(Location location, Vector vector, double v)
+    {
+        return null;
+    }
+
+    @Override
+    public RayTraceResult rayTraceEntities(Location location, Vector vector, double v, double v1)
+    {
+        return null;
+    }
+
+    @Override
+    public RayTraceResult rayTraceEntities(Location location, Vector vector, double v, Predicate<Entity> predicate)
+    {
+        return null;
+    }
+
+    @Override
+    public RayTraceResult rayTraceEntities(Location location, Vector vector, double v, double v1, Predicate<Entity> predicate)
+    {
+        return null;
+    }
+
+    @Override
+    public RayTraceResult rayTraceBlocks(Location location, Vector vector, double v)
+    {
+        return null;
+    }
+
+    @Override
+    public RayTraceResult rayTraceBlocks(Location location, Vector vector, double v, FluidCollisionMode fluidCollisionMode)
+    {
+        return null;
+    }
+
+    @Override
+    public RayTraceResult rayTraceBlocks(Location location, Vector vector, double v, FluidCollisionMode fluidCollisionMode, boolean b)
+    {
+        return null;
+    }
+
+    @Override
+    public RayTraceResult rayTrace(Location location, Vector vector, double v, FluidCollisionMode fluidCollisionMode, boolean b, double v1, Predicate<Entity> predicate)
+    {
+        return null;
+    }
+
+    @Override
 	public <T> T getGameRuleDefault(GameRule<T> arg0) {
         throw new UnsupportedOperationException("Not supported yet.");
 	}
