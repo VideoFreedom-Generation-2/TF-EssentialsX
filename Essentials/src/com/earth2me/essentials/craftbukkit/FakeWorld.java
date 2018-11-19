@@ -1,6 +1,5 @@
 package com.earth2me.essentials.craftbukkit;
 
-import java.util.function.Predicate;
 import org.bukkit.*;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
@@ -21,6 +20,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 
 public class FakeWorld implements World {
@@ -733,69 +733,58 @@ public class FakeWorld implements World {
     }
 
     @Override
-    public Collection<Entity> getNearbyEntities(Location location, double v, double v1, double v2, Predicate<Entity> predicate)
-    {
-        return null;
+    public Collection<Entity> getNearbyEntities(Location location, double x, double y, double z, Predicate<Entity> filter) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Entity> getNearbyEntities(BoundingBox boundingBox)
-    {
-        return null;
+    public Collection<Entity> getNearbyEntities(BoundingBox boundingBox) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Entity> getNearbyEntities(BoundingBox boundingBox, Predicate<Entity> predicate)
-    {
-        return null;
+    public Collection<Entity> getNearbyEntities(BoundingBox boundingBox, Predicate<Entity> filter) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RayTraceResult rayTraceEntities(Location location, Vector vector, double v)
-    {
-        return null;
+    public RayTraceResult rayTraceEntities(Location start, Vector direction, double maxDistance) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RayTraceResult rayTraceEntities(Location location, Vector vector, double v, double v1)
-    {
-        return null;
+    public RayTraceResult rayTraceEntities(Location start, Vector direction, double maxDistance, double raySize) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RayTraceResult rayTraceEntities(Location location, Vector vector, double v, Predicate<Entity> predicate)
-    {
-        return null;
+    public RayTraceResult rayTraceEntities(Location start, Vector direction, double maxDistance, Predicate<Entity> filter) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RayTraceResult rayTraceEntities(Location location, Vector vector, double v, double v1, Predicate<Entity> predicate)
-    {
-        return null;
+    public RayTraceResult rayTraceEntities(Location start, Vector direction, double maxDistance, double raySize, Predicate<Entity> filter) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RayTraceResult rayTraceBlocks(Location location, Vector vector, double v)
-    {
-        return null;
+    public RayTraceResult rayTraceBlocks(Location start, Vector direction, double maxDistance) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RayTraceResult rayTraceBlocks(Location location, Vector vector, double v, FluidCollisionMode fluidCollisionMode)
-    {
-        return null;
+    public RayTraceResult rayTraceBlocks(Location start, Vector direction, double maxDistance, FluidCollisionMode fluidCollisionMode) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RayTraceResult rayTraceBlocks(Location location, Vector vector, double v, FluidCollisionMode fluidCollisionMode, boolean b)
-    {
-        return null;
+    public RayTraceResult rayTraceBlocks(Location start, Vector direction, double maxDistance, FluidCollisionMode fluidCollisionMode, boolean ignorePassableBlocks) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public RayTraceResult rayTrace(Location location, Vector vector, double v, FluidCollisionMode fluidCollisionMode, boolean b, double v1, Predicate<Entity> predicate)
-    {
-        return null;
+    public RayTraceResult rayTrace(Location start, Vector direction, double maxDistance, FluidCollisionMode fluidCollisionMode, boolean ignorePassableBlocks, double raySize, Predicate<Entity> filter) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override

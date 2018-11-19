@@ -219,26 +219,22 @@ public class OfflinePlayer implements Player {
     }
 
     @Override
-    public Block getTargetBlockExact(int i)
-    {
+    public Block getTargetBlockExact(int maxDistance) {
         return null;
     }
 
     @Override
-    public Block getTargetBlockExact(int i, FluidCollisionMode fluidCollisionMode)
-    {
+    public Block getTargetBlockExact(int maxDistance, FluidCollisionMode fluidCollisionMode) {
         return null;
     }
 
     @Override
-    public RayTraceResult rayTraceBlocks(double v)
-    {
+    public RayTraceResult rayTraceBlocks(double maxDistance) {
         return null;
     }
 
     @Override
-    public RayTraceResult rayTraceBlocks(double v, FluidCollisionMode fluidCollisionMode)
-    {
+    public RayTraceResult rayTraceBlocks(double maxDistance, FluidCollisionMode fluidCollisionMode) {
         return null;
     }
 
@@ -1515,6 +1511,11 @@ public class OfflinePlayer implements Player {
     }
 
     @Override
+    public int getClientViewDistance() {
+        return 0;
+    }
+
+    @Override
     public String getLocale() {
         return null;
     }
@@ -1562,8 +1563,7 @@ public class OfflinePlayer implements Player {
     }
 
     @Override
-    public BoundingBox getBoundingBox()
-    {
+    public BoundingBox getBoundingBox() {
         return null;
     }
 
