@@ -236,7 +236,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- The plugins' release version -->
-        <release.version>2.15.0.2</release.version>
+        <release.version>2.15.0.3</release.version>
 
         <!-- The plugins' build number -->
         <build.version>-TF-SNAPSHOT</build.version>

@@ -232,6 +232,12 @@ public class FakeServer implements Server {
             }
 
             @Override
+            public void runTask(Plugin plugin, Consumer<BukkitTask> consumer) throws IllegalArgumentException
+            {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            @Override
             public BukkitTask runTask(Plugin plugin, BukkitRunnable bukkitRunnable) throws IllegalArgumentException {
                 return null;
             }
@@ -243,6 +249,12 @@ public class FakeServer implements Server {
             }
 
             @Override
+            public void runTaskAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer) throws IllegalArgumentException
+            {
+
+            }
+
+            @Override
             public BukkitTask runTaskAsynchronously(Plugin plugin, BukkitRunnable bukkitRunnable) throws IllegalArgumentException {
                 return null;
             }
@@ -250,6 +262,12 @@ public class FakeServer implements Server {
             @Override
             public BukkitTask runTaskLater(Plugin plugin, Runnable r, long l) throws IllegalArgumentException {
                 throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            @Override
+            public void runTaskLater(Plugin plugin, Consumer<BukkitTask> consumer, long l) throws IllegalArgumentException
+            {
+
             }
 
             @Override
@@ -264,6 +282,12 @@ public class FakeServer implements Server {
             }
 
             @Override
+            public void runTaskLaterAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer, long l) throws IllegalArgumentException
+            {
+
+            }
+
+            @Override
             public BukkitTask runTaskLaterAsynchronously(Plugin plugin, BukkitRunnable bukkitRunnable, long l) throws IllegalArgumentException {
                 return null;
             }
@@ -274,6 +298,12 @@ public class FakeServer implements Server {
             }
 
             @Override
+            public void runTaskTimer(Plugin plugin, Consumer<BukkitTask> consumer, long l, long l1) throws IllegalArgumentException
+            {
+
+            }
+
+            @Override
             public BukkitTask runTaskTimer(Plugin plugin, BukkitRunnable bukkitRunnable, long l, long l1) throws IllegalArgumentException {
                 return null;
             }
@@ -281,6 +311,12 @@ public class FakeServer implements Server {
             @Override
             public BukkitTask runTaskTimerAsynchronously(Plugin plugin, Runnable r, long l, long l1) throws IllegalArgumentException {
                 throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            @Override
+            public void runTaskTimerAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer, long l, long l1) throws IllegalArgumentException
+            {
+
             }
 
             @Override
