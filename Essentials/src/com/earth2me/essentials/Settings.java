@@ -538,6 +538,7 @@ public class Settings implements net.ess3.api.ISettings {
         isCompassTowardsHomePerm = _isCompassTowardsHomePerm();
         isAllowWorldInBroadcastworld = _isAllowWorldInBroadcastworld();
         itemDbType = _getItemDbType();
+        forceEnableRecipe = config.getBoolean("force-enable-recipe", false);
     }
 
     private List<Material> itemSpawnBl = new ArrayList<Material>();
@@ -550,7 +551,7 @@ public class Settings implements net.ess3.api.ISettings {
     private List<Material> _getItemSpawnBlacklist() {
         final List<Material> epItemSpwn = new ArrayList<>();
         if (ess.getItemDb() == null) {
-            logger.log(Level.FINE, "Aborting ItemSpawnBL read, itemDB not yet loaded.");
+            logger.log(Level.FINE, "Skipping item spawn blacklist read; item DB not yet loaded.");
             return epItemSpwn;
         }
         for (String itemName : config.getString("item-spawn-blacklist", "").split(",")) {
@@ -562,7 +563,7 @@ public class Settings implements net.ess3.api.ISettings {
                 final ItemStack iStack = ess.getItemDb().get(itemName);
                 epItemSpwn.add(iStack.getType());
             } catch (Exception ex) {
-                logger.log(Level.SEVERE, tl("unknownItemInList", itemName, "item-spawn-blacklist"));
+                logger.log(Level.SEVERE, tl("unknownItemInList", itemName, "item-spawn-blacklist"), ex);
             }
         }
         return epItemSpwn;
@@ -1103,6 +1104,11 @@ public class Settings implements net.ess3.api.ISettings {
         return config.getBoolean("ignore-colors-in-max-nick-length", false);
     }
 
+    @Override
+    public boolean hideDisplayNameInVanish() {
+        return config.getBoolean("hide-displayname-in-vanish", false);
+    }
+
     private boolean allowSilentJoin;
 
     public boolean _allowSilentJoinQuit() {
@@ -1476,12 +1482,8 @@ public class Settings implements net.ess3.api.ISettings {
 
     private boolean forceEnableRecipe; // https://github.com/EssentialsX/Essentials/issues/1397
 
-    private boolean _isForceEnableRecipe() {
-        return config.getBoolean("force-enable-recipe", false);
-    }
-
     @Override
     public boolean isForceEnableRecipe() {
-        return false;
+        return forceEnableRecipe;
     }
 }

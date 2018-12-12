@@ -232,8 +232,7 @@ public class FakeServer implements Server {
             }
 
             @Override
-            public void runTask(Plugin plugin, Consumer<BukkitTask> consumer) throws IllegalArgumentException
-            {
+            public void runTask(Plugin plugin, Consumer<BukkitTask> task) throws IllegalArgumentException {
                 throw new UnsupportedOperationException("Not supported yet.");
             }
 
@@ -249,9 +248,8 @@ public class FakeServer implements Server {
             }
 
             @Override
-            public void runTaskAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer) throws IllegalArgumentException
-            {
-
+            public void runTaskAsynchronously(Plugin plugin, Consumer<BukkitTask> task) throws IllegalArgumentException {
+                throw new UnsupportedOperationException("Not supported yet.");
             }
 
             @Override
@@ -265,9 +263,8 @@ public class FakeServer implements Server {
             }
 
             @Override
-            public void runTaskLater(Plugin plugin, Consumer<BukkitTask> consumer, long l) throws IllegalArgumentException
-            {
-
+            public void runTaskLater(Plugin plugin, Consumer<BukkitTask> task, long delay) throws IllegalArgumentException {
+                throw new UnsupportedOperationException("Not supported yet.");
             }
 
             @Override
@@ -282,9 +279,8 @@ public class FakeServer implements Server {
             }
 
             @Override
-            public void runTaskLaterAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer, long l) throws IllegalArgumentException
-            {
-
+            public void runTaskLaterAsynchronously(Plugin plugin, Consumer<BukkitTask> task, long delay) throws IllegalArgumentException {
+                throw new UnsupportedOperationException("Not supported yet.");
             }
 
             @Override
@@ -298,9 +294,8 @@ public class FakeServer implements Server {
             }
 
             @Override
-            public void runTaskTimer(Plugin plugin, Consumer<BukkitTask> consumer, long l, long l1) throws IllegalArgumentException
-            {
-
+            public void runTaskTimer(Plugin plugin, Consumer<BukkitTask> task, long delay, long period) throws IllegalArgumentException {
+                throw new UnsupportedOperationException("Not supported yet.");
             }
 
             @Override
@@ -314,9 +309,8 @@ public class FakeServer implements Server {
             }
 
             @Override
-            public void runTaskTimerAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer, long l, long l1) throws IllegalArgumentException
-            {
-
+            public void runTaskTimerAsynchronously(Plugin plugin, Consumer<BukkitTask> task, long delay, long period) throws IllegalArgumentException {
+                throw new UnsupportedOperationException("Not supported yet.");
             }
 
             @Override
