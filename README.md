@@ -1,6 +1,6 @@
 ![](https://i.imgur.com/CP4SZpB.png)
 
-[![Build Status](https://travis-ci.org/Telesphoreo/TF-EssentialsX.svg?branch=2.x)](https://travis-ci.org/Telesphoreo/TF-EssentialsX)
+[![Build Status](https://travis-ci.org/Telesphoreo/TF-EssentialsX.svg?branch=1.13)](https://travis-ci.org/Telesphoreo/TF-EssentialsX)
 
 This is a fork of Essentials called EssentialsX.
 
