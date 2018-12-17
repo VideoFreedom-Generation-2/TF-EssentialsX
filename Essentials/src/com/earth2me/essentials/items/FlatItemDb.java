@@ -1,6 +1,7 @@
 package com.earth2me.essentials.items;
 
 import com.earth2me.essentials.ManagedFile;
+import com.earth2me.essentials.utils.MaterialUtil;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -162,7 +163,7 @@ public class FlatItemDb extends AbstractItemDb {
         Material type = item.getType();
         PotionData potion = null;
 
-        if ((type.name().contains("POTION") || type.name().equals("TIPPED_ARROW")) && item.getItemMeta() instanceof PotionMeta) {
+        if (MaterialUtil.isPotion(type) && item.getItemMeta() instanceof PotionMeta) {
             potion = ((PotionMeta) item.getItemMeta()).getBasePotionData();
         }
 
@@ -179,14 +180,8 @@ public class FlatItemDb extends AbstractItemDb {
 
     @Override
     @Deprecated
-    public Material getFromLegacyId(int id) {
-        throw new UnsupportedOperationException("Legacy IDs aren't supported on this version of EssentialsX.");
-    }
-
-    @Override
-    @Deprecated
     public int getLegacyId(Material material) throws Exception {
-        throw new UnsupportedOperationException("Legacy IDs aren't supported on this version of EssentialsX.");
+        throw new UnsupportedOperationException("Legacy IDs aren't supported on this version.");
     }
 
     @Override
@@ -195,7 +190,6 @@ public class FlatItemDb extends AbstractItemDb {
     }
 
     public static class ItemData {
-        private String itemName;
         private Material material;
         private PotionData potionData;
 
@@ -219,10 +213,6 @@ public class FlatItemDb extends AbstractItemDb {
             }
             ItemData that = (ItemData) o;
             return this.material == that.getMaterial() && potionDataEquals(that);
-        }
-
-        public String getItemName() {
-            return itemName;
         }
 
         public Material getMaterial() {
