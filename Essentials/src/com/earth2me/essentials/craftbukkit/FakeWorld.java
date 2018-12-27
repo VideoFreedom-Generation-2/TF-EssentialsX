@@ -138,6 +138,24 @@ public class FakeWorld implements World {
     }
 
     @Override
+    public boolean isChunkForceLoaded(int i, int i1)
+    {
+        return false;
+    }
+
+    @Override
+    public void setChunkForceLoaded(int i, int i1, boolean b)
+    {
+
+    }
+
+    @Override
+    public Collection<Chunk> getForceLoadedChunks()
+    {
+        return null;
+    }
+
+    @Override
     public Item dropItem(Location lctn, ItemStack is) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
