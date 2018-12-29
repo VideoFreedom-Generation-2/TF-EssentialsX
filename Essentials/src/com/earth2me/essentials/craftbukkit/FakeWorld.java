@@ -138,21 +138,18 @@ public class FakeWorld implements World {
     }
 
     @Override
-    public boolean isChunkForceLoaded(int i, int i1)
-    {
-        return false;
+    public boolean isChunkForceLoaded(int x, int z) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void setChunkForceLoaded(int i, int i1, boolean b)
-    {
-
+    public void setChunkForceLoaded(int x, int z, boolean forced) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Collection<Chunk> getForceLoadedChunks()
-    {
-        return null;
+    public Collection<Chunk> getForceLoadedChunks() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -182,7 +179,7 @@ public class FakeWorld implements World {
 
     @Override
     public boolean generateTree(Location loc, TreeType type, BlockChangeDelegate delegate) {
-        return false;
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
