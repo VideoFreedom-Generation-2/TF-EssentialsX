@@ -61,7 +61,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.20</version>
+            <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -239,7 +239,7 @@
         <release.version>2.16.0</release.version>
 
         <!-- The plugins' build number -->
-        <build.version>-pre3-TF</build.version>
+        <build.version>-pre4-TF</build.version>
 
         <full.version>${release.version}${build.version}</full.version>
     </properties>
