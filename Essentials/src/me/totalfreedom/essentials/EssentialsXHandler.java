@@ -32,7 +32,6 @@ public class EssentialsXHandler
     @SuppressWarnings("unchecked")
     public static boolean isSuperAdmin(Player player)
     {
-
         if (superAdminProvider == null)
         {
             final Plugin tfm = getTFM();
