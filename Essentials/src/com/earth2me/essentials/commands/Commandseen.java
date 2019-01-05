@@ -7,9 +7,11 @@ import com.earth2me.essentials.craftbukkit.BanLookup;
 import com.earth2me.essentials.utils.DateUtil;
 import com.earth2me.essentials.utils.FormatUtil;
 import com.earth2me.essentials.utils.StringUtil;
+import me.rayzr522.jsonmessage.JSONMessage;
 import me.totalfreedom.essentials.EssentialsXHandler;
 import org.bukkit.BanEntry;
 import org.bukkit.BanList;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Server;
 
@@ -125,7 +127,10 @@ public class Commandseen extends EssentialsCommand {
             sender.sendMessage(tl("whoisGeoLocation", location));
         }
         if (showIp && !sender.isPlayer() || EssentialsXHandler.isSuperAdmin(sender.getPlayer())) {
-            sender.sendMessage(tl("whoisIPAddress", user.getBase().getAddress().getAddress().toString()));
+            JSONMessage.create(tl("whoisIPAddress", user.getBase().getAddress().getAddress().toString()))
+                    .tooltip("Click to lookup their IP address.")
+                    .runCommand("/seen " + user.getBase().getAddress().getAddress().toString().replace("/", ""))
+                    .send(user.getBase());
         }
     }
 
