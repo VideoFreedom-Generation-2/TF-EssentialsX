@@ -130,7 +130,7 @@ public class Commandseen extends EssentialsCommand {
             JSONMessage.create(tl("whoisIPAddress", user.getBase().getAddress().getAddress().toString()))
                     .tooltip("Click to lookup their IP address.")
                     .runCommand("/seen " + user.getBase().getAddress().getAddress().toString().replace("/", ""))
-                    .send(user.getBase());
+                    .send(sender.getPlayer());
         }
     }
 
