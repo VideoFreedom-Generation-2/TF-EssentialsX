@@ -11,15 +11,10 @@ import me.rayzr522.jsonmessage.JSONMessage;
 import me.totalfreedom.essentials.EssentialsXHandler;
 import org.bukkit.BanEntry;
 import org.bukkit.BanList;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Server;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
-import java.util.Collections;
+import java.util.*;
 
 import static com.earth2me.essentials.I18n.tl;
 
@@ -36,7 +31,7 @@ public class Commandseen extends EssentialsCommand {
 
     @Override
     protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
-        seen(server, user.getSource(), commandLabel, args, user.isAuthorized("essentials.seen.banreason"), user.isAuthorized("essentials.seen.ip"), user.isAuthorized("essentials.seen.location"), user.isAuthorized("essentials.seen.ipsearch"));
+        seen(server, user.getSource(), commandLabel, args, user.isAuthorized("essentials.seen.banreason"), EssentialsXHandler.isSuperAdmin(user.getBase()), user.isAuthorized("essentials.seen.location"), user.isAuthorized("essentials.seen.ipsearch"));
     }
 
     protected void seen(final Server server, final CommandSource sender, final String commandLabel, final String[] args,
@@ -49,7 +44,7 @@ public class Commandseen extends EssentialsCommand {
         try {
             UUID uuid = UUID.fromString(args[0]);
             player = ess.getUser(uuid);
-        }catch (IllegalArgumentException ignored) { // Thrown if invalid UUID from string, check by name.
+        } catch (IllegalArgumentException ignored) { // Thrown if invalid UUID from string, check by name.
             player = ess.getOfflineUser(args[0]);
         }
 
@@ -91,7 +86,7 @@ public class Commandseen extends EssentialsCommand {
         }
     }
 
-    private void showSeenMessage(Server server, CommandSource sender, User player, boolean showBan, boolean showIp, boolean showLocation)  throws Exception {
+    private void showSeenMessage(Server server, CommandSource sender, User player, boolean showBan, boolean showIp, boolean showLocation) throws Exception {
         if (player.getBase().isOnline() && canInteractWith(sender, player)) {
             seenOnline(server, sender, player, showBan, showIp, showLocation);
         } else {
@@ -126,11 +121,15 @@ public class Commandseen extends EssentialsCommand {
         if (location != null && (!(sender.isPlayer()) || ess.getUser(sender.getPlayer()).isAuthorized("essentials.geoip.show"))) {
             sender.sendMessage(tl("whoisGeoLocation", location));
         }
-        if (showIp && !sender.isPlayer() || EssentialsXHandler.isSuperAdmin(sender.getPlayer())) {
-            JSONMessage.create(tl("whoisIPAddress", user.getBase().getAddress().getAddress().toString()))
-                    .tooltip("Click to lookup their IP address.")
-                    .runCommand("/seen " + user.getBase().getAddress().getAddress().toString().replace("/", ""))
-                    .send(sender.getPlayer());
+        if (showIp) {
+            if (sender.isPlayer()) {
+                JSONMessage.create(tl("whoisIPAddress", user.getBase().getAddress().getAddress().toString()))
+                        .tooltip("Click to lookup their IP address.")
+                        .runCommand("/seen " + user.getBase().getAddress().getAddress().toString().replace("/", ""))
+                        .send(sender.getPlayer());
+            } else {
+                sender.sendMessage(tl("whoisIPAddress", user.getBase().getAddress().getAddress().toString()));
+            }
         }
     }
 
@@ -170,8 +169,16 @@ public class Commandseen extends EssentialsCommand {
             sender.sendMessage(tl("whoisGeoLocation", location));
         }
         if (showIp) {
-            if (!user.getLastLoginAddress().isEmpty() && EssentialsXHandler.isSuperAdmin(sender.getPlayer())) {
-                sender.sendMessage(tl("whoisIPAddress", user.getLastLoginAddress()));
+            if (!user.getLastLoginAddress().isEmpty()) {
+                if (sender.isPlayer()) {
+
+                    JSONMessage.create(tl("whoisIPAddress", user.getLastLoginAddress()))
+                            .tooltip("Click to lookup their IP address.")
+                            .runCommand("/seen " + user.getLastLoginAddress().replace("/", ""))
+                            .send(sender.getPlayer());
+                } else {
+                    sender.sendMessage(tl("whoisIPAddress", user.getLastLoginAddress()));
+                }
             }
         }
         if (showLocation) {
