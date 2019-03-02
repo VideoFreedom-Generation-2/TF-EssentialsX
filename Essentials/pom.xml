@@ -114,5 +114,16 @@
             <version>2.16.1</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>me.rayzr522</groupId>
+            <artifactId>jsonmessage</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>rayzr-repo</id>
+            <url>https://cdn.rawgit.com/Rayzr522/maven-repo/master/</url>
+        </repository>
+    </repositories>
 </project>
