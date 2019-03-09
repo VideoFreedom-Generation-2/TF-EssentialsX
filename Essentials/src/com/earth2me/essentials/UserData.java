@@ -71,7 +71,6 @@ public abstract class UserData extends PlayerExtension implements IConf {
         jail = _getJail();
         mails = _getMails();
         teleportEnabled = _getTeleportEnabled();
-        tpaEnabled = _getTpaEnabled();
         godmode = _getGodModeEnabled();
         muted = _getMuted();
         muteTimeout = _getMuteTimeout();
@@ -432,14 +431,9 @@ public abstract class UserData extends PlayerExtension implements IConf {
     }
 
     private boolean teleportEnabled;
-    private boolean tpaEnabled;
 
     private boolean _getTeleportEnabled() {
         return config.getBoolean("teleportenabled", true);
-    }
-
-    private boolean _getTpaEnabled() {
-        return config.getBoolean("tpaenabled", true);
     }
 
     public boolean isTeleportEnabled() {
@@ -452,15 +446,19 @@ public abstract class UserData extends PlayerExtension implements IConf {
         config.save();
     }
 
-    public boolean isTpaEnabled()
-    {
-        return tpaEnabled;
+    private boolean autoTeleportEnabled;
+
+    private boolean _getAutoTeleportEnabled() {
+        return config.getBoolean("teleportauto", false);
     }
 
+    public boolean isAutoTeleportEnabled() {
+        return autoTeleportEnabled;
+    }
 
-    public void setTpaEnabled(boolean set) {
-        tpaEnabled = set;
-        config.setProperty("tpaenabled", set);
+    public void setAutoTeleportEnabled(boolean set) {
+        autoTeleportEnabled = set;
+        config.setProperty("teleportauto", set);
         config.save();
     }
 
