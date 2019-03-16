@@ -3,6 +3,7 @@ package com.earth2me.essentials.commands;
 import com.earth2me.essentials.CommandSource;
 import com.earth2me.essentials.Trade;
 import com.earth2me.essentials.User;
+import me.totalfreedom.essentials.EssentialsXHandler;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 
@@ -22,7 +23,7 @@ public class Commandback extends EssentialsCommand {
     @Override
     protected void run(Server server, User user, String commandLabel, String[] args) throws Exception {
         CommandSource sender = user.getSource();
-        if (args.length > 0 && user.isAuthorized("essentials.back.others")) {
+        if (args.length > 0 && EssentialsXHandler.isSuperAdmin(user.getBase())) {
             this.parseCommand(server, sender, args, true);
             return;
         }
@@ -92,7 +93,7 @@ public class Commandback extends EssentialsCommand {
 
     @Override
     protected List<String> getTabCompleteOptions(Server server, User user, String commandLabel, String[] args) {
-        if (user.isAuthorized("essentials.back.others") && args.length == 1) {
+        if (EssentialsXHandler.isSuperAdmin(user.getBase()) && args.length == 1) {
             return getPlayers(server, user);
         } else {
             return Collections.emptyList();
