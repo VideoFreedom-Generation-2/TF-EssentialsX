@@ -8,6 +8,7 @@ import com.earth2me.essentials.User;
 import com.earth2me.essentials.messaging.IMessageRecipient;
 import com.earth2me.essentials.utils.FormatUtil;
 
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.Server;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class Commandmsg extends EssentialsLoopCommand {
                 throw new Exception(user.hasMuteReason() ? tl("voiceSilencedReason", user.getMuteReason()) : tl("voiceSilenced"));
             }
             message = FormatUtil.formatMessage(user, "essentials.msg", message);
-            canWildcard = user.isAuthorized("essentials.msg.multiple");
+            canWildcard = Handler.isAdmin(user.getBase());
         } else {
             message = FormatUtil.replaceFormat(message);
             canWildcard = true;

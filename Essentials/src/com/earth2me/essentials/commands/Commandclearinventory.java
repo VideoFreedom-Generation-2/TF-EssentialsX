@@ -8,6 +8,7 @@ import com.earth2me.essentials.craftbukkit.InventoryWorkaround;
 import com.earth2me.essentials.utils.NumberUtil;
 import com.earth2me.essentials.utils.StringUtil;
 
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.Material;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
@@ -27,8 +28,8 @@ public class Commandclearinventory extends EssentialsCommand {
 
     @Override
     public void run(Server server, User user, String commandLabel, String[] args) throws Exception {
-        parseCommand(server, user.getSource(), commandLabel, args, user.isAuthorized("essentials.clearinventory.others"),
-            user.isAuthorized("essentials.clearinventory.all") || user.isAuthorized("essentials.clearinventory.multiple"));
+        parseCommand(server, user.getSource(), commandLabel, args, Handler.isAdmin(user.getBase()),
+            Handler.isAdmin(user.getBase()));
     }
 
     @Override
@@ -153,7 +154,7 @@ public class Commandclearinventory extends EssentialsCommand {
         if (user.isAuthorized("essentials.clearinventory.others")) {
             if (args.length == 1) {
                 List<String> options = getPlayers(server, user);
-                if (user.isAuthorized("essentials.clearinventory.all") || user.isAuthorized("essentials.clearinventory.multiple")) {
+                if (Handler.isAdmin(user.getBase())) {
                     // Assume that nobody will have the 'all' permission without the 'others' permission
                     options.add("*");
                 }

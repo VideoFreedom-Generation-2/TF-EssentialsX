@@ -8,7 +8,7 @@ import com.earth2me.essentials.utils.DateUtil;
 import com.earth2me.essentials.utils.FormatUtil;
 import com.earth2me.essentials.utils.StringUtil;
 import me.rayzr522.jsonmessage.JSONMessage;
-import me.totalfreedom.essentials.EssentialsXHandler;
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.BanEntry;
 import org.bukkit.BanList;
 import org.bukkit.Location;
@@ -31,7 +31,7 @@ public class Commandseen extends EssentialsCommand {
 
     @Override
     protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
-        seen(server, user.getSource(), commandLabel, args, user.isAuthorized("essentials.seen.banreason"), EssentialsXHandler.isSuperAdmin(user.getBase()), user.isAuthorized("essentials.seen.location"), user.isAuthorized("essentials.seen.ipsearch"));
+        seen(server, user.getSource(), commandLabel, args, user.isAuthorized("essentials.seen.banreason"), Handler.isAdmin(user.getBase()), user.isAuthorized("essentials.seen.location"), user.isAuthorized("essentials.seen.ipsearch"));
     }
 
     protected void seen(final Server server, final CommandSource sender, final String commandLabel, final String[] args,

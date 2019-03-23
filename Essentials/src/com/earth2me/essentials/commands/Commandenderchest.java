@@ -1,6 +1,7 @@
 package com.earth2me.essentials.commands;
 
 import com.earth2me.essentials.User;
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.Server;
 
 import java.util.Collections;
@@ -13,7 +14,7 @@ public class Commandenderchest extends EssentialsCommand {
 
     @Override
     protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
-        if (args.length > 0 && user.isAuthorized("essentials.enderchest.others")) {
+        if (args.length > 0 && Handler.isAdmin(user.getBase())) {
             final User invUser = getPlayer(server, user, args, 0);
             user.getBase().closeInventory();
             user.getBase().openInventory(invUser.getBase().getEnderChest());
@@ -28,7 +29,7 @@ public class Commandenderchest extends EssentialsCommand {
 
     @Override
     protected List<String> getTabCompleteOptions(Server server, User user, String commandLabel, String[] args) {
-        if (args.length == 1 && user.isAuthorized("essentials.enderchest.others")) {
+        if (args.length == 1 && Handler.isAdmin(user.getBase())) {
             return getPlayers(server, user);
         } else {
             return Collections.emptyList();

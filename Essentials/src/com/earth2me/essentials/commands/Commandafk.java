@@ -2,6 +2,7 @@ package com.earth2me.essentials.commands;
 
 import com.earth2me.essentials.CommandSource;
 import com.earth2me.essentials.User;
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.Server;
 
 import java.util.Collections;
@@ -17,7 +18,7 @@ public class Commandafk extends EssentialsCommand {
 
     @Override
     public void run(Server server, User user, String commandLabel, String[] args) throws Exception {
-        if (args.length > 0 && user.isAuthorized("essentials.afk.others")) {
+        if (args.length > 0 && Handler.isAdmin(user.getBase())) {
             User afkUser = user; // if no player found, but message specified, set command executor to target user
             String message;
             try {
@@ -84,7 +85,7 @@ public class Commandafk extends EssentialsCommand {
 
     @Override
     protected List<String> getTabCompleteOptions(Server server, User user, String commandLabel, String[] args) {
-        if (args.length == 1 && user.isAuthorized("essentials.afk.others")) {
+        if (args.length == 1 && Handler.isAdmin(user.getBase())) {
             return getPlayers(server, user);
         } else {
             return Collections.emptyList();

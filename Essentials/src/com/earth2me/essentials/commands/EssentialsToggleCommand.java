@@ -3,6 +3,7 @@ package com.earth2me.essentials.commands;
 import com.earth2me.essentials.CommandSource;
 import com.earth2me.essentials.User;
 import com.google.common.collect.Lists;
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.Server;
 import org.bukkit.entity.Player;
 
@@ -51,7 +52,7 @@ public abstract class EssentialsToggleCommand extends EssentialsCommand {
         boolean foundUser = false;
         final List<Player> matchedPlayers = server.matchPlayer(args[0]);
         for (Player matchPlayer : matchedPlayers) {
-            final User player = ess.getUser(matchPlayer);
+            User player = ess.getUser(matchPlayer);
             if (skipHidden && player.isHidden(sender.getPlayer()) && !sender.getPlayer().canSee(matchPlayer)) {
                 continue;
             }
@@ -64,6 +65,9 @@ public abstract class EssentialsToggleCommand extends EssentialsCommand {
                     togglePlayer(sender, player, false);
                 }
             } else {
+                if (!Handler.isAdmin(sender.getPlayer())) {
+                    player = ess.getUser(sender.getPlayer());
+                }
                 togglePlayer(sender, player, null);
             }
         }

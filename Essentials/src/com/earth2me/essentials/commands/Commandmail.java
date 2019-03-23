@@ -8,6 +8,7 @@ import com.earth2me.essentials.textreader.TextPager;
 import com.earth2me.essentials.utils.FormatUtil;
 import com.earth2me.essentials.utils.StringUtil;
 import com.google.common.collect.Lists;
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.Server;
 
 import java.util.Collections;
@@ -78,7 +79,7 @@ public class Commandmail extends EssentialsCommand {
             return;
         }
         if (args.length > 1 && "sendall".equalsIgnoreCase(args[0])) {
-            if (!user.isAuthorized("essentials.mail.sendall")) {
+            if (!Handler.isAdmin(user.getBase())) {
                 throw new Exception(tl("noPerm", "essentials.mail.sendall"));
             }
             ess.runTaskAsynchronously(new SendAll(tl("mailFormat", user.getName(),
@@ -151,7 +152,7 @@ public class Commandmail extends EssentialsCommand {
             if (user.isAuthorized("essentials.mail.send")) {
                 options.add("send");
             }
-            if (user.isAuthorized("essentials.mail.sendall")) {
+            if (Handler.isAdmin(user.getBase())) {
                 options.add("sendall");
             }
             return options;

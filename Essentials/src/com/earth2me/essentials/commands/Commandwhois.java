@@ -6,7 +6,7 @@ import com.earth2me.essentials.craftbukkit.SetExpFix;
 import com.earth2me.essentials.utils.DateUtil;
 import com.earth2me.essentials.utils.EnumUtil;
 import com.earth2me.essentials.utils.NumberUtil;
-import me.totalfreedom.essentials.EssentialsXHandler;
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.Server;
 import org.bukkit.Statistic;
 
@@ -47,7 +47,7 @@ public class Commandwhois extends EssentialsCommand {
         if (!ess.getSettings().isEcoDisabled()) {
             sender.sendMessage(tl("whoisMoney", NumberUtil.displayCurrency(user.getMoney(), ess)));
         }
-        if (!sender.isPlayer() || EssentialsXHandler.isSuperAdmin(sender.getPlayer())) {
+        if (!sender.isPlayer() || Handler.isAdmin(sender.getPlayer())) {
             sender.sendMessage(tl("whoisIPAddress", user.getBase().getAddress().getAddress().toString()));
         }
         final String location = user.getGeoLocation();

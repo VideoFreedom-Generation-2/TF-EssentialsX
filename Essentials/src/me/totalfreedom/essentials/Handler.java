@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
-public class EssentialsXHandler
+public class Handler
 {
     public static final boolean DEBUG = true;
     private static Logger logger;
@@ -15,7 +15,7 @@ public class EssentialsXHandler
 
     public static void setLogger(Logger logger)
     {
-        EssentialsXHandler.logger = logger;
+        Handler.logger = logger;
     }
 
     public static Plugin getTFM()
@@ -30,7 +30,7 @@ public class EssentialsXHandler
     }
 
     @SuppressWarnings("unchecked")
-    public static boolean isSuperAdmin(Player player)
+    public static boolean isAdmin(Player player)
     {
         if (superAdminProvider == null)
         {

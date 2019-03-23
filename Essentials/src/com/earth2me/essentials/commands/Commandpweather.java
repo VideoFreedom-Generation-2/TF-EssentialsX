@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 
 import com.earth2me.essentials.CommandSource;
 import com.earth2me.essentials.User;
+import me.totalfreedom.essentials.Handler;
 import org.bukkit.Server;
 import org.bukkit.WeatherType;
 import org.bukkit.entity.Player;
@@ -53,7 +54,7 @@ public class Commandpweather extends EssentialsCommand {
 
         if (sender.isPlayer()) {
             User user = ess.getUser(sender.getPlayer());
-            if (user != null && (!users.contains(user) || users.size() > 1) && !user.isAuthorized("essentials.pweather.others")) {
+            if (user != null && (!users.contains(user) || users.size() > 1) && !Handler.isAdmin(user.getBase())) {
                 user.sendMessage(tl("pWeatherOthersPermission"));
                 return;
             }
@@ -157,7 +158,7 @@ public class Commandpweather extends EssentialsCommand {
     protected List<String> getTabCompleteOptions(Server server, User user, String commandLabel, String[] args) {
         if (args.length == 1) {
             return Lists.newArrayList("get", "reset", "storm", "sun");
-        } else if (args.length == 2 && (getAliases.contains(args[0]) || user == null || user.isAuthorized("essentials.pweather.others"))) {
+        } else if (args.length == 2 && (getAliases.contains(args[0]) || user == null || Handler.isAdmin(user.getBase()))) {
             return getPlayers(server, user);
         } else {
             return Collections.emptyList();

@@ -3,6 +3,7 @@ package com.earth2me.essentials.commands;
 import com.earth2me.essentials.CommandSource;
 import com.earth2me.essentials.User;
 import com.earth2me.essentials.utils.FormatUtil;
+import me.totalfreedom.essentials.Handler;
 import net.ess3.api.events.NickChangeEvent;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
@@ -29,7 +30,7 @@ public class Commandnick extends EssentialsLoopCommand {
             throw new Exception(tl("nickDisplayName"));
         }
 
-        if (args.length > 1 && user.isAuthorized("essentials.nick.others")) {
+        if (args.length > 1 && Handler.isAdmin(user.getBase())) {
             final String[] nickname = formatNickname(user, args[1]).split(" ");
             loopOfflinePlayers(server, user.getSource(), false, true, args[0], nickname);
             user.sendMessage(tl("nickChanged"));
@@ -75,7 +76,6 @@ public class Commandnick extends EssentialsLoopCommand {
 
     private String formatNickname(final User user, final String nick) throws Exception {
         String newNick = user == null ? FormatUtil.replaceFormat(nick) : FormatUtil.formatString(user, "essentials.nick", nick);
-        // Allow unsafe nicknames
         if (!newNick.matches("^[a-zA-Z_0-9\u00a7]+$") && user != null && !user.isAuthorized("essentials.nick.allowunsafe")) {
             throw new Exception(tl("nickNamesAlpha"));
         } else if (getNickLength(newNick) > ess.getSettings().getMaxNickLength()) {
@@ -118,7 +118,7 @@ public class Commandnick extends EssentialsLoopCommand {
 
     @Override
     protected List<String> getTabCompleteOptions(final Server server, final User user, final String commandLabel, final String[] args) {
-        if (args.length == 1 && user.isAuthorized("essentials.nick.others")) {
+        if (args.length == 1 && Handler.isAdmin(user.getBase())) {
             return getPlayers(server, user);
         } else {
             return Collections.emptyList();
